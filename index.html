@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>在线计算器</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-1 col-sm-4"></div>
+            <div id="computer" class="col-xs-10 col-sm-6">
+                <input type="text" id="txt_code" name="txt_code" value="" class="form-control input_show" placeholder="公式计算" disabled />
+                <input type="text" id="txt_result" name="txt_result" value="" class="form-control input_show" placeholder="结果" disabled />
+                <br />
+                <div>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_7()">7</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_8()">8</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_9()">9</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_div()">/</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_curl()">(</button>
+                    <br />
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_4()">4</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_5()">5</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_6()">6</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_mul()">*</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_curr()">)</button>
+                    <br />
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_1()">1</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_2()">2</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_3()">3</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_sub()">-</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_back()">back</button>
+                    <br />
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_0()">0</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_00()">00</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_dot()">.</button>
+                    <button type="button" class="btn btn-default btn_num" onclick="fun_add()">+</button>
+                    <button type="button" class="btn btn-default btn_num">空</button>
+                </div>
+                <div>
+                    <br />
+                    <button type="button" class="btn btn-success btn-lg btn_clear" id="lgbut_clear" onclick="fun_clear()">清空
+                    </button>
+                    <button type="button" class="btn btn-primary btn-lg" id="lgbut_compute" onclick="fun_result()">
+                        计算
+                    </button>
+                </div>
+            </div>
+            <div class="col-xs-1 col-sm-2"></div>
+        </div>
+    </div>
+    <div class="extendContent"></div>
+    <script>
+        let x = document.getElementById("txt_code");
+        let y = document.getElementById("txt_result");
+
+        function fun_7() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*7';
+            else
+                x.value += '7';
+        }
+
+        function fun_8() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*8';
+            else
+                x.value += '8';
+        }
+
+        function fun_9() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*9';
+            else
+                x.value += '9';
+        }
+
+        function fun_div() {
+            x.value += '/';
+        }
+
+        function fun_curl() {
+            if(x.value.charAt(x.value.length-1) !== ('+' && '-' && '/' && '*' && ''))
+                x.value += '*(';
+            else
+                x.value += '(';
+        }
+
+        function fun_4() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*4';
+            else
+                x.value += '4';
+        }
+
+        function fun_5() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*5';
+            else
+                x.value += '5';
+        }
+
+        function fun_6() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*6';
+            else
+                x.value += '6';
+        }
+
+        function fun_mul() {
+            x.value += '*';
+        }
+
+        function fun_curr() {
+            x.value += ')';
+        }
+
+        function fun_1() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*1';
+            else
+                x.value += '1';
+        }
+
+        function fun_2() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*2';
+            else
+                x.value += '2';
+        }
+
+        function fun_3() {
+            if(x.value.charAt(x.value.length-1) === ')')
+                x.value += '*3';
+            else
+                x.value += '3';
+        }
+
+        function fun_sub() {
+            x.value += '-';
+        }
+
+        function fun_back() {
+            x.value = x.value.slice(0,x.value.length-1);
+        }
+
+        function fun_0() {
+            x.value += '0';
+        }
+
+        function fun_00() {
+            if(x.value !== '')
+                x.value += '00';
+        }
+
+        function fun_dot() {
+            x.value += '.';
+        }
+
+        function fun_add() {
+            x.value += '+';
+        }
+
+        function fun_clear() {
+            x.value = '';
+            y.value = '';
+        }
+
+        function fun_result() {
+            y.value = eval(x.value);
+        }
+    </script>
+</body>
+</html>
